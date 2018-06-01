@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>HTML 5新增元素构建网页</title>
+<link href="default.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="content">
+  <div style="position:absolute; left: 8px; top: 146px; width: 237px; height: 177px;">
+    <canvas id="myCanvas" width="250" height="260">你的浏览器还不支持哦</canvas>
+  </div>
+  <script type="text/javascript"> 
+        var c = document.getElementById("myCanvas"); 
+        var cxt = c.getContext("2d"); 
+        var slen = 60,mlen = 50,hlen = 40; 
+       
+        cxt.beginPath(); 
+        cxt.strokeStyle = "#00f"; 
+        cxt.fillStyle = "#00f"; 					//填充颜色
+        cxt.arc(100, 150, 5, 0, 2 * Math.PI, true); 		//钟表的圆心
+        cxt.fill(); 								//绘制钟表圆心
+        cxt.closePath(); 
+
+        cxt.beginPath(); 
+        cxt.strokeStyle = "#00f"; 
+        cxt.arc(100, 150, 100, 0, 2 * Math.PI, true); 	//钟表的大圆
+        cxt.stroke(); 
+        cxt.closePath(); 
+        cxt.beginPath(); 
+        cxt.translate(100, 150); //平移原点
+        cxt.rotate(-Math.PI / 2); 
+        cxt.save();        
+        for (var i = 0; i < 60; i++) { 
+            if (i % 5 == 0) { 
+                cxt.fillRect(80, 0, 20, 5); 
+                cxt.fillText("" + (i / 5 == 0 ? 12 : i / 5), 70, 0); 
+            } else { 
+                cxt.fillRect(90, 0, 10, 2); 
+            } 
+            cxt.rotate(Math.PI / 30); 
+        } 
+        cxt.closePath(); 
+
+        var ls = 0, lm = 0, lh = 0; 
+function Refresh() { 
+    cxt.restore(); 							
+    cxt.save(); 
+    cxt.rotate(ls * Math.PI / 30); 		
+    cxt.clearRect(5, -1, slen+1, 2+2); 
+    cxt.restore(); cxt.save(); 
+
+    cxt.rotate(lm * Math.PI / 30); 
+    cxt.clearRect(5, -1, mlen+1, 3+2); 
+    cxt.restore(); cxt.save(); 
+
+    cxt.rotate(lh * Math.PI / 6); 
+    cxt.clearRect(5, -3, hlen+1, 4+2); 
+
+    var time = new Date(); 
+            var s = ls=time.getSeconds(); 
+            var m = lm=time.getMinutes(); 
+            var h = lh=time.getHours();            
+            cxt.restore(); 
+            cxt.save(); 
+            cxt.rotate(s * Math.PI / 30); 	
+            cxt.fillRect(5, 0, slen, 2); 
+            cxt.restore(); cxt.save(); 
+            cxt.rotate(m * Math.PI / 30); 
+            cxt.fillRect(5, 0, mlen, 3); 
+            cxt.restore(); cxt.save(); 
+            cxt.rotate(h * Math.PI / 6); 
+            cxt.fillRect(5, -2, hlen, 4); 
+        } 
+        var MyInterval = setInterval("Refresh();", 1000); 
+    </script>
+  <div id="colOne">
+    <header>
+      <hgroup>
+        <h1><a href="#">Flower</a></h1>
+        <h2><a href="http://www.freecsstemplates.org/">colorful world</a></h2>
+      </hgroup>
+    </header>
+    <article>
+    <style>
+.leftheader1{
+	height:auto;
+	background-image:none;
+}
+.leftheader1 h2 ,h3{
+	margin: 0;
+	padding: 0;
+	float:left;
+	text-transform: lowercase;
+	font-weight: normal;
+	color: #6C7F00;
+}
+
+.leftheader1 h2 {
+	letter-spacing: -2px;
+	font-size: 1.8em;
+}
+</style>
+    <section>
+      <header class="leftheader1">
+        <hgroup>
+          <h2 class="title">那些花儿——写给《桐花》</h2>
+          <br/>
+          <h3 class="posted">小清新 在
+            <time>2009年10月26日</time>
+            发表</h3>
+          <br/>
+        </hgroup>
+      </header>
+      <div class="story"><br/>
+        <p>
+        <pre>如今这里荒草丛生没有了鲜花
+好在曾经拥有你们的春秋和冬夏
+她们都老了吧她们在哪里呀
+幸运的是我曾陪她们开放
+ 			——<cite>席慕蓉《<mark>桐花</mark>》</cite>读后感
+</pre>
+        </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;晚上去书店淘书的时候，无意中看到席慕蓉的一本文集《透明的哀伤》，本是漫不经心地翻看了几页，却被里面一篇《
+          <mark>桐花</mark>
+          》中的带着懵懂感悟与浅浅忧伤的文字所吸引，顿觉爱不释手，遂买下此书。</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;回到家中，给自己泡了一杯柠檬茶，开始静静品读起来。</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...</p>
+      </div>
+      <div class="meta">
+        <p>查看 <a href="#" class="category">More</a> | <a href="#" class="comment">1 条评论 &raquo;</a></p>
+      </div>
+    </section>
+    
+    
+    <section>
+      <header class="leftheader1">
+        <hgroup>
+          <h2 class="title">花本无罪——（一点感想）</h2>
+          <br/>
+          <h3 class="posted">小清新 在
+            <time>2011年11月11日</time>
+            发表</h3>
+          <br/>
+        </hgroup>
+      </header>
+      <div class="story"><br/>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;今日之花，比古时牡丹也要幸运的多，至少没有被焚烧和流放。在温暖的大棚里，用混合了化学肥料的泥土栽培，用溶解了生物增添剂的流水浇灌，用纯熟简单的手段修剪，在“科学”的护理、精确的计算下，云端外链，生根发芽，花开花落，成为一套固定的流程，花开的美丽，花谢的意境，都可以通过流水线生产出来。
+        </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark>花本无罪</mark>，一朵盛开的花，是一株盛开的性命。</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark>花本无罪</mark>，花开无度，花落无声，暑往寒来，草木知秋，面对人间的悲欢，花无言，花尽知。</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...</p>
+      </div>
+      <div class="meta">
+        <p>查看 <a href="#" class="category">More</a> | <a href="#" class="comment">21 条评论 &raquo;</a></p>
+      </div>
+    </section>
+  
+    <article>
+  </div>
+  <div id="colTwo">
+    <ul>
+      <li id="menu">
+        <h2>Pages</h2>
+        <ul>
+          <nav> <a href="#" style="background: #B22900;color: #FFFFFF;">首页</a><a href="#">图片库</a><a href="#">关于花</a><a href="#">关于我们</a><a href="#">联系我吧</a> </nav>
+          <!--<li class="active"><a href="#">My Blog</a></li>
+          <li><a href="#">My Photos</a></li>
+          <li><a href="#">My Favorites</a></li>
+          <li><a href="#">About Me</a></li>
+          <li><a href="#">Contact Me</a></li>-->
+        </ul>
+      </li>
+      <li>
+        <h2>Search</h2>
+        <form method="get" action="#">
+          <div>
+            <input type="search" id="textfield1" name="textfield1" value="" size="18" />
+            <input type="submit" id="submit1" name="submit1" value="Search" />
+          </div>
+        </form>
+      </li>
+      <li>
+        <h2>Archives</h2>
+        <ul>
+          <li><a href="#">January 2007</a></li>
+          <li><a href="#">December 2006</a></li>
+          <li><a href="#">November 2006</a></li>
+          <li><a href="#">October 2006</a></li>
+          <li><a href="#">September 2006</a></li>
+        </ul>
+      </li>
+      <li>
+        <h2>推荐视频</h2>
+        <ul>
+          <li>
+            <video width="200" height="200" controls autoplay poster="../file/novideo.jpg">
+              <source src="../file/video.webm" type="video/webm" />
+              <source src="../file/video.mp4" type="video/mp4"/>
+              <source src="../file/video.ogg" type="video/ogg" />
+            </video>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div style="clear: both;">&nbsp;</div>
+</div>
+<footer>
+  <p>Copyright &copy; 2014 Gumamela. Designed by <a href="http://www.freecsstemplates.org/"><strong>colorful world</strong></a></p>
+</footer>
+</body>
+</html>

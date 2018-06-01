@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+	<style>
+		header{
+	height: 430px;
+	background: url(../image/img1.jpg) no-repeat right top;
+		}
+		header h1{
+			padding:310px 30px 0 0;
+			text-align:right;
+			letter-spacing:-5px;
+			font-size:4em;
+		}
+		header h2{
+			margin:-15px 0 0 0;
+			padding:0 30px 0 0;
+			text-align:right;
+			letter-spacing:normal;
+			font-size:lem;
+		}
+		</style>
+		<style>
+		section{
+			margin:0 30px;
+			padding: 20px 0 10px 0;
+			border-top:10px solid #e0e0e0;
+		}
+	
+			
+		
+	    </style>
+    <canvas id="myCanvas" width="250" height="260">你的浏览器不支持</canvas>
+    
+</head>
+<script type="text/javascript">
+		var c = document.getElementById("myCanvas");
+		var cxt = c.getContext("2d");
+		var slen=60,mlen=50, hlen=40;
+		cxt.beginPath();
+		cxt.strokeStyle = "#00f";
+		cxt.fillStyle = "#00f";
+		cxt.arc(100,150,5,0,2*Math.PI,true);
+		cxt.fill();
+		cxt.closePath();
+		cxt.beginPath();
+		cxt.storkeStyle = "#00f";
+		cxt.arc(100,150,100,0,2*Math.PI,true);
+		cxt.stroke();
+		cxt.closePath();
+		cxt.beginPath();
+		cxt.translate(100,150);
+		cxt.rotate(-Math.PI/2);
+		cxt.save();
+		for (var i=0; i<60; i++){
+				if (i % 5 == 0){
+						cxt.fillRect(80,0,20,5);
+						cxt.fillText("" + (i/5 == 0? 12:i/5),70,0);
+					}else{
+							cxt.fillRect(90,0,10,2);
+						}
+						cxt.rotate(Math.PI/30);
+			}
+			cxt.closePath();
+</script>
+<script>
+		var ls=0,lm=0,lh=0;
+		function Refresh(){
+				cxt.restore();
+				cxt.save();
+				cxt.rotate(ls*Math.PI/30);
+				cxt.clearRect(5,-1,slen+1,2+2);
+				cxt.restore();
+				cxt.save();
+				cxt.rotate(lm*Math.PI/30);
+				cxt.clearRect(5,-1,mlen+1,3+2);
+				cxt.restore();
+				cxt.save();
+				cxt.rotate(lh*Math.PI/6);
+				cxt.clearRect(5,-3,hlen+1,4+2);
+				var time = new Date();
+				var s = ls=time.getSeconds();
+				var m = lm=time.getMinutes();
+				var h = lh=time.getHours();
+				cxt.restore();
+				cxt.save();
+				cxt.rotate(s*Math.PI/30);
+				cxt.fillRect(5,0,slen,2);
+				cxt.restore();
+				cxt.save();
+				cxt.rotate(m*Math.PI/30);
+				cxt.fillRect(5,0,mlen,3);
+				cxt.restore();
+				cxt.save();
+				cxt.rotate(h*Math.PI/6);
+				cxt.fillRect(5,-2,hlen,4);
+			}
+		var MyInterval  = setInterval("Refresh();",1000);
+	</script>
+
+<body>
+	<header>
+    	<hgroup>
+    		<h1><a href="#">Flower</a></h1>
+       		<h2><a href="http://www.freecsstemplates.org/">colorful world</a></h2>
+        </hgroup>
+    </header>
+    <article>
+   	  <section>
+        	<header class="leftheader1">
+            	<hgroup>
+                	<h3 class="title">那些花儿——写给《桐花》</h3>
+                    <h3 class="posted">小清新 在<time>2009年10月 26日</time>发布</h3>
+                </hgroup>
+             </header>
+             <div class="story">
+             
+           	   <p>
+                	<pre>
+        如今这里荒草丛生没有了鲜花
+        好在曾经拥有你们的春秋和冬夏
+        她们都老了吧她们在哪里呀
+        幸运的是我曾陪他们开放 
+                         ————<cite>席慕容《<mark>桐花</mark>》</cite>读后感
+                         </pre>
+                         </p>
+                      </div>                     
+        </section>
+      <section>
+        <header class="leftheader1">
+            	<hgroup>
+                	<h3 class="title">那些花儿——写给《桐花》</h3>
+                    <h3 class="posted">小清新 在<time>2009年10月 26日</time>发布</h3>
+                </hgroup>
+             </header>
+             <div class="story">
+             	<p>
+           	   <pre>
+        如今这里荒草丛生没有了鲜花
+        好在曾经拥有你们的春秋和冬夏
+        她们都老了吧她们在哪里呀
+        幸运的是我曾陪他们开放 
+                         ————<cite>席慕容《<mark>桐花</mark>》</cite>读后感
+                         </pre>
+                         </p>
+        </div>         
+      </section>
+    </article>
+    
+</body>
+</html>

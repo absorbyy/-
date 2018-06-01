@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+<script>
+	if(typeof FileReader=='undefind'){
+		alert("您的浏览器未实现FileReader接口");
+	}
+	function GetInfo(){
+		var file= document.getElementById("selFile").files[0];
+		var seltype= document.getElementById("seltype").value;
+		if(file==null||file=='underfind'){
+			alert("您还没有选择文件，请选择文件。");
+		}else{
+			if(seltype==0){
+				var reader =new FileReader();
+				reader.readAsBinaryString(file);
+				reader.onload =function(e){
+					document.getElementById("readResult").innerHTML=this.result;
+				}
+			}
+			 else if(seltype==1){
+				 var txtType=/text.*/;
+				 if (!file.type.match(txtType)){
+					 alter(file.name+"不是文件，请重新上传");
+					 return;
+				 }
+				 var reader=new FileReader();
+				 reader.readAsText(file, "GB2312");
+				 reader.onload=function(e){
+					 document.getElementById("readResult").innerHTML=this.result;
+				 }
+					 
+			}
+	}
+	}
+</script>
+
+<body>
+	<form name="1" action="#" method="get">
+    	读取类型：
+        <select id="seltype">
+        	<option value="0" selected>读取二进制文件</option>
+            <option value="1">读取文本文件</option>
+        </select>
+        选择文件：<input type="file" id="selFile" onChange="GetInfo()"/>
+        <br/><br/>
+        <textarea id="readResult" rows="10" cols="80"></textarea>
+</form>
+</body>
+</html>
